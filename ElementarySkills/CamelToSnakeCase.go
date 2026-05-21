@@ -31,22 +31,17 @@ func CamelToSnakeCase(s string) string {
 		// Check if uppercase
 		if ch >= 'A' && ch <= 'Z' {
 
-			// Invalid if uppercase is last character
-			if i == len(s)-1 {
+			// Invalid if uppercase is last character or next character
+			if i == len(s)-1 || (ch < 'A' && ch > 'z') || (ch > 'Z' && ch < 'a') {
 				return s
 			}
-			// Invalid if next character is also uppercase
-			if i+1 < len(s) && s[i+1] >= 'A' && s[i+1] <= 'Z' {
-				return s
-			}
-
 			// Add underscore except at beginning
 			if i != 0 {
 				result += "_"
 			}
 
 			// Convert to lowercase
-			//result += strings.ToLower(string(ch))
+			result += strings.ToLower(string(ch))
 
 		} else if ch >= 'a' && ch <= 'z' {
 
@@ -57,7 +52,6 @@ func CamelToSnakeCase(s string) string {
 			return s
 		}
 	}
-
 	return result
 }
 
