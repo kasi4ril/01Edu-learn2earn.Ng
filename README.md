@@ -1,2 +1,2 @@
-# o1edu-go-reloaded
+# 01Edu-Learning
 My  projects in the learning journey with 01edu (Learn2earn.ng). 
